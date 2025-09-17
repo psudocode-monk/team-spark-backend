@@ -1,0 +1,6 @@
+node_modules
+.env
+.log
+.config
+node_modules/
+dist/
