@@ -1,14 +1,21 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 
 const communityPostSchema = new mongoose.Schema(
   {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true
+    },
     userIcon: {
       type: String,
-      required: true,
+      required: false, // changed from true → false
+      default: "",     // optional default
     },
     userName: {
       type: String,
-      required: true,
+      required: false, // changed from true → false
+      default: "Anonymous", // optional default
     },
     content: {
       type: String,
@@ -16,6 +23,10 @@ const communityPostSchema = new mongoose.Schema(
     },
     image: {
       type: String,
+    },
+    location: {
+      type: String, 
+      required: true,
     },
     likes: [
       {
@@ -33,6 +44,6 @@ const communityPostSchema = new mongoose.Schema(
   {
     timestamps: true,
   }
-);
+)
 
-export default mongoose.model("CommunityPost", CommunityPost);
+export default mongoose.model("CommunityPost", communityPostSchema)
