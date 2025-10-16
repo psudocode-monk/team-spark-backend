@@ -35,5 +35,4 @@ const communityPostSchema = new mongoose.Schema(
   }
 );
 
-
 export default mongoose.model("CommunityPost", CommunityPost);
